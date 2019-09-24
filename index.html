@@ -6,25 +6,28 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Find bag!</title>
         <link rel="stylesheet" href="style.css">
-        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap&subset=cyrillic" rel="stylesheet">        <link rel="stylesheet" href="fonts.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap&subset=cyrillic" rel="stylesheet">
     </head>
     <body class="body">
+         
         <div class="container-background">
-            <div class="main-screen-wrapper">
+            <div class="main-screen-wrapper id="menuScreen">
                 <header class="header">
                     <h1 class="header__title">Выберите уровень сложности:</h1>
-                    <p class="header__text">Выберите сложность и игра начнется.  <span class="text-normal">Чем выше уровень - тем больше будет выборка карт.<span></span></p>
+                    <p class="header__text">Выберите сложность и игра начнется.
+                        <span class="text-normal">Чем выше уровень - тем больше будет выборка карт.</span>
+                    </p>
                 </header>
                 <main class="main-content">
-                    <ul class="menu">
-                        <li class="menu__item">Простой</li>
-                        <li class="menu__item">Средний</li>
-                        <li class="menu__item">Сложный</li>
-                    </ul>
-                    <button class="button-start" type="button">Начать игру</button>
+                    <section class="menu">
+                        <button type="button" class="menu__item checked" id="simple">Простой</button>
+                        <button type="button" class="menu__item" id="middle">Средний</button>
+                        <button type="button" class="menu__item" id="hard">Сложный</button>
+                    </section>
+                    <button class="button-start" type="button" id="start">Начать игру</button>
                 </main>
             </div>
         </div>
-        <script async src="script.js"></script>
+        <script src="script.js"></script>
     </body>
 </html>
