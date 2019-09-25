@@ -97,7 +97,6 @@ body {
 }
 
 .checked::before {
-    /* display: none; */
     content: "";
     background-color: #D62B2E;
     position: absolute;
@@ -128,6 +127,13 @@ body {
 
 .button-start:active {
     background-color: rgb(131, 36, 38);
+}
+
+.card {
+    display: inline-block;
+    width: 218px;
+    height: 341px;
+    background-image: url("card_back.png");
 }
 
 @media only screen and (max-width: 1030px) {
