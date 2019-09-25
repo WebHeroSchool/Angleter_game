@@ -4,16 +4,15 @@ const middleButton = document.getElementById("middle");
 const hardButton = document.getElementById("hard");
 const startButton = document.getElementById("start");
 const menuScreen = document.getElementById("menuScreen");
-const baseField = document.querySelector(".container-background");
+const baseField = document.querySelector(".container-for-cards");
 const allButtonList = document.querySelectorAll(".menu__item");
-//const newCard = document.createElement('div')
-//const card 
 
 const card = () => {
     const newCard = document.createElement('div');
-    //console.log(baseField);
+    //const containerForCards = document.createElement('div');
     newCard.classList.add("card");
     baseField.appendChild(newCard);
+    //containerForCards.appendChild(newCard);
 }
 
 const chooseLevel = (elem) => { 
@@ -32,36 +31,35 @@ allButtonList.forEach((item) => item.addEventListener("click", chooseLevel));
 function startGame () {
     let currentLevel = document.querySelector(".checked").getAttribute("id");
     menuScreen.remove();
-    //console.log(currentLevel);
-    function createField (level) {
-        //console.log(currentLevel);//функция по запуску поля с картами
-        if (level == "simple") {
-            card();
-            card();
-            card();
-        }
-        else if (level == "middle") {
-            card();
-            card();
-            card();
-            card();
-            card();
-            card();
-        }
-        else if (level == "hard") {
-            card();
-            card();
-            card();
-            card();
-            card();
-            card();
-            card();
-            card();
-            card();
-        }
-    };
 
+    function createField (level) {
+        baseField.classList.add("centered")
+        //const containerForCards = document.createElement('div');
+        //baseField.appendChild(containerForCards);
+        switch (level) {
+            case "simple":
+                baseField.classList.add("centeredFor3");
+                for(let i = 3; i-- ;) {
+                    card();
+                }
+                break;
+            case "middle":
+                baseField.classList.add("centeredFor6");
+                for(let i = 6; i-- ;) {
+                    card();
+                }
+                break;
+            case "hard":
+                baseField.classList.add("centeredFor10");
+                for(let i = 10; i-- ;) {
+                    card();
+                }
+                break;
+        } 
+    }
 createField(currentLevel);
-}
+};
 
 startButton.addEventListener("click", startGame);
+
+

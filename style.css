@@ -20,7 +20,7 @@ body {
 
 .main-screen-wrapper {
     padding: 130px 0 0 102px;
-    position: relative;
+    /* position: relative; */
 
 }
 .main-screen-wrapper::before {
@@ -129,11 +129,36 @@ body {
     background-color: rgb(131, 36, 38);
 }
 
+.container-for-cards {
+    
+}
+
+.centered {
+    margin: 0 auto;
+    width: max-content;
+    max-width: 730px;
+}
+.centeredFor3 {
+    padding-top: 300px;
+    max-width: 730px;
+}
+
+.centeredFor6 {
+    padding-top: 100px;
+    max-width: 730px;
+}
+
+.centeredFor10 {
+    padding-top: 100px;
+    max-width: 1210px;
+}
+
 .card {
     display: inline-block;
     width: 218px;
     height: 341px;
     background-image: url("card_back.png");
+    margin: 0 24px 24px 0;
 }
 
 @media only screen and (max-width: 1030px) {
