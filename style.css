@@ -159,6 +159,13 @@ body {
     height: 341px;
     background-image: url("card_back.png");
     margin: 0 24px 24px 0;
+    transition: 1s ease;
+}
+
+.card:hover {
+    transform: rotate(-3deg) translateY(-30px);
+    transition: .5s ease-in-out;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
 }
 
 @media only screen and (max-width: 1030px) {

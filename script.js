@@ -7,12 +7,11 @@ const menuScreen = document.getElementById("menuScreen");
 const baseField = document.querySelector(".container-for-cards");
 const allButtonList = document.querySelectorAll(".menu__item");
 
-const card = () => {
+const card = (level) => {
     const newCard = document.createElement('div');
-    //const containerForCards = document.createElement('div');
     newCard.classList.add("card");
     baseField.appendChild(newCard);
-    //containerForCards.appendChild(newCard);
+    //функция, генерирующая обратную сторону карты Math.random
 }
 
 const chooseLevel = (elem) => { 
@@ -34,25 +33,23 @@ function startGame () {
 
     function createField (level) {
         baseField.classList.add("centered")
-        //const containerForCards = document.createElement('div');
-        //baseField.appendChild(containerForCards);
         switch (level) {
             case "simple":
                 baseField.classList.add("centeredFor3");
                 for(let i = 3; i-- ;) {
-                    card();
+                    card(currentLevel);
                 }
                 break;
             case "middle":
                 baseField.classList.add("centeredFor6");
                 for(let i = 6; i-- ;) {
-                    card();
+                    card(currentLevel);
                 }
                 break;
             case "hard":
                 baseField.classList.add("centeredFor10");
                 for(let i = 10; i-- ;) {
-                    card();
+                    card(currentLevel);
                 }
                 break;
         } 
@@ -61,5 +58,3 @@ createField(currentLevel);
 };
 
 startButton.addEventListener("click", startGame);
-
-
