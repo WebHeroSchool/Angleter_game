@@ -7,10 +7,8 @@ const menuScreen = document.getElementById("menuScreen");
 const mainContainer = document.querySelector(".container-background");
 const allButtonList = document.querySelectorAll(".menu__item");
 const allCards = document.querySelectorAll(".card");
-// создаем внутренние элементы карты
-//const baseField = document.querySelector(".container-for-cards");
 const baseField = document.createElement("div");
-baseField.classList.add(".container-for-cards");
+baseField.classList.add(".container-for-cards", ".centered");
 
 function goToStart () {
     mainContainer.appendChild(menuScreen);
@@ -18,32 +16,31 @@ function goToStart () {
     baseField.remove();
     }
 
-const card = (level) => {
-    const newCard = document.createElement("div");
-    const flipCardInner = document.createElement("div");
-    const flipCardFront = document.createElement("div");
-    const flipCardBack = document.createElement("div");
-    const imgValue = document.createElement("img");
-    const imgFront = document.createElement("img");
-    newCard.classList.add("card");
-    flipCardInner.classList.add("flip-card-inner");
-    flipCardFront.classList.add("flip-card-front");
-    flipCardBack.classList.add("flip-card-back");
-    imgValue.setAttribute("src", "card_gameover.png");
-    imgFront.setAttribute("src", "card_back.png");
-    baseField.appendChild(newCard);
-    newCard.appendChild(flipCardInner);
-    flipCardInner.appendChild(flipCardFront);
-    flipCardInner.appendChild(flipCardBack);
-    flipCardFront.appendChild(imgFront);
-    flipCardBack.appendChild(imgValue);
-    flipCardInner.addEventListener("click", () => {
-        flipCardInner.classList.add("transform");
-        const allCards = document.querySelectorAll(".flip-card-inner");
-        console.log(allCards);
-        allCards.forEach((item) => item.addEventListener("click", goToStart));  
-    });
-}
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+    }
+
+// function createRandomBag (level) {
+//     currentLevelNum = (level) => {
+//         switch (level) {
+//             case "simple":
+//                 return 3;
+//                 break;
+//             case "middle":
+//                 return 6;
+//                 break;
+//             case "hard":
+//                 return 10;
+//                 break;
+//         }
+//     }
+//       let randomNum = getRandomInt (1, currentLevelNum);
+//       if (randomNum == 1) {
+//         imgValue.setAttribute("src", "card-bag.png");
+//       }
+// }
+
+
 
 const chooseLevel = (elem) => { 
     allButtonList.forEach((item) => item.classList.remove("checked"));
@@ -60,12 +57,69 @@ allButtonList.forEach((item) => item.addEventListener("click", chooseLevel));
 
 function startGame () {
     let currentLevel = document.querySelector(".checked").getAttribute("id");
+    console.log(currentLevel);
+    function currentLevelNum (item) {
+        switch (item) {
+            case "simple":
+                return 3;
+                console.log(3)
+                break;
+            case "middle":
+                return 6;
+                console.log(6)
+                break;
+            case "hard":
+                return 10;
+                console.log(10)
+                break;
+        }
+        return
+    }
+    let newCurrentLevelNum = currentLevelNum(currentLevel);
+    console.log(newCurrentLevelNum);
     menuScreen.remove();
+    baseField.classList.remove("centeredFor3", "centeredFor6", "centeredFor10", "centered");
+    baseField.classList.add("centered")
     mainContainer.appendChild(baseField);
 
-    function createField (level) {
+    let card = (level) => {
+        const newCard = document.createElement("div");
+        const flipCardInner = document.createElement("div");
+        const flipCardFront = document.createElement("div");
+        const flipCardBack = document.createElement("div");
+        const imgValue = document.createElement("img");
+        const imgFront = document.createElement("img");
+        newCard.classList.add("card");
+        flipCardInner.classList.add("flip-card-inner");
+        flipCardFront.classList.add("flip-card-front");
+        flipCardBack.classList.add("flip-card-back");
+        imgValue.setAttribute("src", "card_gameover.png");
+        imgFront.setAttribute("src", "card_back.png");
+        baseField.appendChild(newCard);
+        newCard.appendChild(flipCardInner);
+        flipCardInner.appendChild(flipCardFront);
+        flipCardInner.appendChild(flipCardBack);
+        flipCardFront.appendChild(imgFront);
+        flipCardBack.appendChild(imgValue);
+////////////////
+        function createRandomBag (level) {
+                let randomNum = getRandomInt(1, level);
+                console.log(randomNum);
+                if (randomNum == 1) {
+                    imgValue.setAttribute("src", "card-bag.png");
+                }
+            console.log(imgValue);
+            }
+        createRandomBag(newCurrentLevelNum);
+        ///////////////
+        flipCardInner.addEventListener("click", () => {
+            flipCardInner.classList.add("transform");
+            const allCards = document.querySelectorAll(".flip-card-inner");
+            allCards.forEach((item) => item.addEventListener("click", goToStart)); 
+        }) 
+    }
 
-        baseField.classList.add("centered")
+    function createField (level) {
         switch (level) {
             case "simple":
                 baseField.classList.add("centeredFor3");
@@ -87,7 +141,7 @@ function startGame () {
                 break;
         } 
     }
-createField(currentLevel);
+    createField(currentLevel);
 };
 
 startButton.addEventListener("click", startGame)
