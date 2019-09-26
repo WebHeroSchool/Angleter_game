@@ -103,16 +103,18 @@ function startGame () {
         flipCardBack.appendChild(imgValue);
 ////////////////
         function createRandomBag (level) {
-                let randomNum = getRandomInt(1, level);
-                console.log(randomNum);
-                if (randomNum == 1) {
-                    imgValue.setAttribute("src", "card-bag.png");
-                }
-            console.log(imgValue);
+            let randomNum = getRandomInt(1, level);
+            console.log(randomNum);
+            if (randomNum == 1) {
+            imgValue.setAttribute("src", "card-bag.png");
             }
-        createRandomBag(newCurrentLevelNum);
+            console.log(imgValue);
+        }
+        
         ///////////////
         flipCardInner.addEventListener("click", () => {
+            createRandomBag(newCurrentLevelNum);
+            console.log(imgValue);
             flipCardInner.classList.add("transform");
             const allCards = document.querySelectorAll(".flip-card-inner");
             allCards.forEach((item) => item.addEventListener("click", goToStart)); 
