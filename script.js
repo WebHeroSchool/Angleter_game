@@ -6,10 +6,17 @@ const startButton = document.getElementById("start");
 const menuScreen = document.getElementById("menuScreen");
 const mainContainer = document.querySelector(".container-background");
 const allButtonList = document.querySelectorAll(".menu__item");
+const allCards = document.querySelectorAll(".card");
 // создаем внутренние элементы карты
 //const baseField = document.querySelector(".container-for-cards");
 const baseField = document.createElement("div");
 baseField.classList.add(".container-for-cards");
+
+function goToStart () {
+    mainContainer.appendChild(menuScreen);
+    baseField.innerHTML = '';
+    baseField.remove();
+    }
 
 const card = (level) => {
     const newCard = document.createElement("div");
@@ -31,14 +38,11 @@ const card = (level) => {
     flipCardFront.appendChild(imgFront);
     flipCardBack.appendChild(imgValue);
     flipCardInner.addEventListener("click", () => {
-        flipCardInner.classList.toggle("transform");
-        flipCardInner.addEventListener("click", () => {
-            mainContainer.appendChild(menuScreen);
-            baseField.innerHTML = '';
-            baseField.remove()
-            });
-        });
-    //функция, генерирующая обратную сторону карты Math.random
+        flipCardInner.classList.add("transform");
+        const allCards = document.querySelectorAll(".flip-card-inner");
+        console.log(allCards);
+        allCards.forEach((item) => item.addEventListener("click", goToStart));  
+    });
 }
 
 const chooseLevel = (elem) => { 
@@ -86,4 +90,4 @@ function startGame () {
 createField(currentLevel);
 };
 
-startButton.addEventListener("click", startGame);
+startButton.addEventListener("click", startGame)
