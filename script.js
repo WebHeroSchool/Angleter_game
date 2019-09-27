@@ -55,7 +55,7 @@ function startGame () {
     let newCurrentLevelNum = currentLevelNum(currentLevel);
     console.log(newCurrentLevelNum);
     menuScreen.remove();
-    baseField.classList.remove("centeredFor3", "centeredFor6", "centeredFor10");
+    innerField.classList.remove("centeredFor3", "centeredFor6", "centeredFor10");
     mainContainer.appendChild(baseField);
     baseField.appendChild(innerField);
 
@@ -71,6 +71,8 @@ function startGame () {
         flipCardFront.classList.add("flip-card-front");
         flipCardBack.classList.add("flip-card-back");
         imgValue.setAttribute("src", "card_gameover.png");
+        imgValue.classList.add("img-value");
+        imgFront.classList.add("img-front");
         imgFront.setAttribute("src", "card_back.png");
         innerField.appendChild(newCard);
         newCard.appendChild(flipCardInner);

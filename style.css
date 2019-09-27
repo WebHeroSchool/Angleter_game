@@ -9,10 +9,9 @@ body {
    background-repeat: no-repeat;
    background-size: cover;
    color: #fff;
-   max-width: 100%;
    width: 100%;
-   min-width: 730px;
-   min-height: 1164px;
+   /* max-width: 1440px; */
+   min-height: 1024px;
    margin: 0 auto;
    box-sizing: border-box;
    font-weight: bold;
@@ -137,23 +136,21 @@ body {
     justify-content: center; 
 }
 .inner-container-for-cards {
-    /* display: flex;
-    justify-content: center; */
+    padding-left: 25px;
 }
 
 .centeredFor3 {
-    padding-top: 300px;
-    /* max-width: 730px; */
+    padding-top: 320px;
 }
 
 .centeredFor6 {
     padding-top: 100px;
-    /* max-width: 730px; */
+    max-width: 730px;
 }
 
 .centeredFor10 {
     padding-top: 100px;
-    /* max-width: 1210px; */
+    max-width: 1210px;
 }
 
 .card {
@@ -163,7 +160,6 @@ body {
     background: transparent;
     margin: 0 24px 24px 0;
     transition: 1s ease;
-    
 }
 
 .class-for-hover:hover {
@@ -186,7 +182,8 @@ body {
     transform: rotateY(180deg);
 }
   
-.flip-card-front, .flip-card-back {
+.flip-card-front, 
+.flip-card-back {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -198,6 +195,11 @@ body {
     transform: rotateY(180deg);
 }
 
+.img-value,
+.img-front {
+    max-width: 100%;
+}
+
 @media only screen and (max-width: 1030px) {
     .main-screen-wrapper::before,
     .main-screen-wrapper::after {
@@ -205,9 +207,79 @@ body {
     }
 }
 
-@media only screen and (max-width: 730px) {
+@media only screen and (max-width: 1230px) {
+    
+    .centeredFor10 {
+        padding-top: 150px;
+        max-width: 950px;
+    }
+
+    .centeredFor6 {
+        max-width: 600px;
+    }
+
+    .card {
+        width: 164px;
+        height: 256px;
+    }
+}
+
+@media only screen and (max-width: 975px) {
+    
+    .centeredFor10 {
+        padding-top: 170px;
+        max-width: 750px;
+    }
+
+    .centeredFor6 {
+        padding-top: 200px;
+        max-width: 450px;
+    }
+
+    .card {
+        width: 123px;
+        height: 192px;
+    }
+}
+
+@media only screen and (max-width: 765px) {
+    
+    .centeredFor10 {
+        padding-top: 150px;
+        max-width: 600px;
+    }
+    .centeredFor6 {
+        padding-top: 200px;
+        max-width: 350px;
+    }
+    .card {
+        width: 93px;
+        height: 144px;
+        margin: 0 18px 18px 0;
+    }
+}
+
+@media only screen and (max-width: 620px) {
+    
+    .centeredFor10 {
+        padding-top: 100px;
+        max-width: 500px;
+    }
+
+    .centeredFor6 {
+        padding-top: 150px;
+        max-width: 300px;
+    }
+
+    .card {
+        width: 70px;
+        height: 108px;
+        margin: 0 18px 18px 0;
+    }
+}
+/* @media only screen and (max-width: 730px) {
     .centeredFor3 {
-        padding-top: 300px;
+        padding-top: 341px;
         width: 100%;
     }
     
@@ -220,4 +292,4 @@ body {
         padding-top: 100px;
         max-width: 1210px;
     }
-}
+} */
