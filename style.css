@@ -10,7 +10,6 @@ body {
    background-size: cover;
    color: #fff;
    width: 100%;
-   /* max-width: 1440px; */
    min-height: 1024px;
    margin: 0 auto;
    box-sizing: border-box;
@@ -19,9 +18,8 @@ body {
 
 .main-screen-wrapper {
     padding: 130px 0 0 102px;
-    /* position: relative; */
-
 }
+
 .main-screen-wrapper::before {
     content: "";
     background-image: url("card_back.png");
@@ -135,6 +133,7 @@ body {
     display: flex;
     justify-content: center; 
 }
+
 .inner-container-for-cards {
     padding-left: 25px;
 }
@@ -273,21 +272,50 @@ body {
     }
 }
 
-@media only screen and (max-width: 620px) {
+@media only screen and (max-width: 375px) {
     
+    .main-screen-wrapper {
+        padding: 40px 0 0 30px;
+    }
+
+    .header__title {
+        font-size: 40px;
+        line-height: 40px;
+        margin-bottom: 30px;
+    }
+
+    .menu {
+        margin-bottom: 40px;
+    }
+    .menu__item {
+        font-size: 35px;
+        line-height: 30px;
+    }
+
+    .button-start {
+        font-size: 32px;
+        line-height: 37px;
+        width: 250px;
+        height: 70px;
+    }
+
+    .checked::before {
+        top: 10px;
+    }
     .centeredFor10 {
-        padding-top: 100px;
-        max-width: 500px;
+        padding-top: 50px;
+        max-width: 375px;
     }
 
     .centeredFor6 {
         padding-top: 150px;
-        max-width: 300px;
+        max-width: 280px;
     }
 
     .card {
         width: 70px;
         height: 108px;
-        margin: 0 18px 18px 0;
+        margin: 0 15px 15px 0;
     }
 }
+
