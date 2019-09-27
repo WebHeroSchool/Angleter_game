@@ -156,7 +156,7 @@ body {
 .card {
     display: inline-block;
     width: 218px;
-    height: 341px;
+    height: 342px;
     background: transparent;
     margin: 0 24px 24px 0;
     transition: 1s ease;
@@ -197,7 +197,7 @@ body {
 
 .img-value,
 .img-front {
-    max-width: 100%;
+    max-width: 102.5%;
 }
 
 @media only screen and (max-width: 1030px) {
@@ -218,9 +218,16 @@ body {
         max-width: 600px;
     }
 
-    .card {
+    .card { 
         width: 164px;
-        height: 256px;
+        height: 258px;
+    }
+
+    .img-value {
+    max-width: 101.2%;
+    }
+    .img-front {
+    max-width: 102.5%;
     }
 }
 
@@ -240,6 +247,13 @@ body {
         width: 123px;
         height: 192px;
     }
+
+    .img-value {
+        max-width: 100.0%;
+        }
+        .img-front {
+        max-width: 101.0%;
+        }
 }
 
 @media only screen and (max-width: 765px) {
@@ -277,19 +291,3 @@ body {
         margin: 0 18px 18px 0;
     }
 }
-/* @media only screen and (max-width: 730px) {
-    .centeredFor3 {
-        padding-top: 341px;
-        width: 100%;
-    }
-    
-    .centeredFor6 {
-        padding-top: 100px;
-        max-width: 730px;
-    }
-    
-    .centeredFor10 {
-        padding-top: 100px;
-        max-width: 1210px;
-    }
-} */
