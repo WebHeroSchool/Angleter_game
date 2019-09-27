@@ -24,7 +24,7 @@ body {
     content: "";
     background-image: url("card_back.png");
     position: absolute;
-    top: 545px;
+    top: 450px;
     right: 158px;
     width: 218px;
     height: 341px;
@@ -38,7 +38,7 @@ body {
     content: "";
     background-image: url("card_back.png");
     position: absolute;
-    top: 530px;
+    top: 430px;
     right: 338px;
     width: 218px;
     height: 341px;
@@ -199,7 +199,7 @@ body {
     max-width: 102.5%;
 }
 
-@media only screen and (max-width: 1030px) {
+@media only screen and (max-width: 1070px) {
     .main-screen-wrapper::before,
     .main-screen-wrapper::after {
         display: none;
@@ -283,10 +283,13 @@ body {
         line-height: 40px;
         margin-bottom: 30px;
     }
-
+    .header__text {
+        padding-right: 19px;
+    }
     .menu {
         margin-bottom: 40px;
     }
+
     .menu__item {
         font-size: 35px;
         line-height: 30px;
@@ -303,15 +306,19 @@ body {
         top: 10px;
     }
     .centeredFor10 {
-        padding-top: 50px;
+        padding-top: 150px;
         max-width: 375px;
     }
 
     .centeredFor6 {
-        padding-top: 150px;
+        padding-top: 200px;
         max-width: 280px;
     }
 
+    .centeredFor3 {
+        padding-top: 200px;
+        max-width: 280px;
+    }
     .card {
         width: 70px;
         height: 108px;
