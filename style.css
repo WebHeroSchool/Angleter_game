@@ -9,9 +9,9 @@ body {
    background-repeat: no-repeat;
    background-size: cover;
    color: #fff;
-   width: 100%;
    max-width: 100%;
-   min-width: 500px;
+   width: 100%;
+   min-width: 730px;
    min-height: 1164px;
    margin: 0 auto;
    box-sizing: border-box;
@@ -130,53 +130,56 @@ body {
 }
 
 .container-for-cards {
-    
+    margin: 0 auto;
+    width: 100%;
+    perspective: 1000px; 
+    display: flex;
+    justify-content: center; 
+}
+.inner-container-for-cards {
+    /* display: flex;
+    justify-content: center; */
 }
 
-.centered {
-    margin: 0 auto;
-    width: max-content;
-    max-width: 730px;
-}
 .centeredFor3 {
     padding-top: 300px;
-    max-width: 730px;
+    /* max-width: 730px; */
 }
 
 .centeredFor6 {
     padding-top: 100px;
-    max-width: 730px;
+    /* max-width: 730px; */
 }
 
 .centeredFor10 {
     padding-top: 100px;
-    max-width: 1210px;
+    /* max-width: 1210px; */
 }
 
 .card {
     display: inline-block;
     width: 218px;
     height: 341px;
-    /* background-image: url("card_back.png"); */
     background: transparent;
     margin: 0 24px 24px 0;
     transition: 1s ease;
-    perspective: 1000px; 
+    
 }
 
-.card:hover {
+.class-for-hover:hover {
     transform: rotate(-3deg) translateY(-30px);
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
     transition: .5s ease-in-out;
-    /* box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5); */
 }
 
 .flip-card-inner {
     position: relative;
     width: 100%;
     height: 100%;
-    text-align: center;
     transition: transform 0.8s;
     transform-style: preserve-3d;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    cursor: pointer;
     }
   
 .transform {
@@ -188,6 +191,7 @@ body {
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
   
 .flip-card-back {
@@ -198,5 +202,22 @@ body {
     .main-screen-wrapper::before,
     .main-screen-wrapper::after {
         display: none;
+    }
+}
+
+@media only screen and (max-width: 730px) {
+    .centeredFor3 {
+        padding-top: 300px;
+        width: 100%;
+    }
+    
+    .centeredFor6 {
+        padding-top: 100px;
+        max-width: 730px;
+    }
+    
+    .centeredFor10 {
+        padding-top: 100px;
+        max-width: 1210px;
     }
 }

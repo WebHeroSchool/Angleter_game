@@ -8,38 +8,20 @@ const mainContainer = document.querySelector(".container-background");
 const allButtonList = document.querySelectorAll(".menu__item");
 const allCards = document.querySelectorAll(".card");
 const baseField = document.createElement("div");
-baseField.classList.add(".container-for-cards", ".centered");
+const innerField = document.createElement("div");
+baseField.classList.add("container-for-cards");
+innerField.classList.add("inner-container-for-cards");
 
 function goToStart () {
     mainContainer.appendChild(menuScreen);
-    baseField.innerHTML = '';
+    innerField.innerHTML = '';
+    innerField.remove();
     baseField.remove();
     }
 
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
     }
-
-// function createRandomBag (level) {
-//     currentLevelNum = (level) => {
-//         switch (level) {
-//             case "simple":
-//                 return 3;
-//                 break;
-//             case "middle":
-//                 return 6;
-//                 break;
-//             case "hard":
-//                 return 10;
-//                 break;
-//         }
-//     }
-//       let randomNum = getRandomInt (1, currentLevelNum);
-//       if (randomNum == 1) {
-//         imgValue.setAttribute("src", "card-bag.png");
-//       }
-// }
-
 
 
 const chooseLevel = (elem) => { 
@@ -48,11 +30,6 @@ const chooseLevel = (elem) => {
 }
 
 allButtonList.forEach((item) => item.addEventListener("click", chooseLevel));
-
-
-
-/////////////////////
-
 
 
 function startGame () {
@@ -78,9 +55,9 @@ function startGame () {
     let newCurrentLevelNum = currentLevelNum(currentLevel);
     console.log(newCurrentLevelNum);
     menuScreen.remove();
-    baseField.classList.remove("centeredFor3", "centeredFor6", "centeredFor10", "centered");
-    baseField.classList.add("centered")
+    baseField.classList.remove("centeredFor3", "centeredFor6", "centeredFor10");
     mainContainer.appendChild(baseField);
+    baseField.appendChild(innerField);
 
     let card = (level) => {
         const newCard = document.createElement("div");
@@ -89,19 +66,19 @@ function startGame () {
         const flipCardBack = document.createElement("div");
         const imgValue = document.createElement("img");
         const imgFront = document.createElement("img");
-        newCard.classList.add("card");
-        flipCardInner.classList.add("flip-card-inner");
+        newCard.classList.add("card"); 
+        flipCardInner.classList.add("flip-card-inner", "class-for-hover");
         flipCardFront.classList.add("flip-card-front");
         flipCardBack.classList.add("flip-card-back");
         imgValue.setAttribute("src", "card_gameover.png");
         imgFront.setAttribute("src", "card_back.png");
-        baseField.appendChild(newCard);
+        innerField.appendChild(newCard);
         newCard.appendChild(flipCardInner);
         flipCardInner.appendChild(flipCardFront);
         flipCardInner.appendChild(flipCardBack);
         flipCardFront.appendChild(imgFront);
         flipCardBack.appendChild(imgValue);
-////////////////
+
         function createRandomBag (level) {
             let randomNum = getRandomInt(1, level);
             console.log(randomNum);
@@ -111,10 +88,9 @@ function startGame () {
             console.log(imgValue);
         }
         
-        ///////////////
         flipCardInner.addEventListener("click", () => {
             createRandomBag(newCurrentLevelNum);
-            console.log(imgValue);
+            flipCardInner.classList.remove("class-for-hover");
             flipCardInner.classList.add("transform");
             const allCards = document.querySelectorAll(".flip-card-inner");
             allCards.forEach((item) => item.addEventListener("click", goToStart)); 
@@ -124,19 +100,19 @@ function startGame () {
     function createField (level) {
         switch (level) {
             case "simple":
-                baseField.classList.add("centeredFor3");
+                innerField.classList.add("centeredFor3");
                 for(let i = 3; i-- ;) {
                     card(currentLevel);
                 }
                 break;
             case "middle":
-                baseField.classList.add("centeredFor6");
+                innerField.classList.add("centeredFor6");
                 for(let i = 6; i-- ;) {
                     card(currentLevel);
                 }
                 break;
             case "hard":
-                baseField.classList.add("centeredFor10");
+                innerField.classList.add("centeredFor10");
                 for(let i = 10; i-- ;) {
                     card(currentLevel);
                 }
