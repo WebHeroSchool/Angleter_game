@@ -58,26 +58,7 @@ function startGame () {
     baseField.appendChild(innerField);
 
     let card = (level) => {
-        // const newCard = document.createElement("div");
-        // const flipCardInner = document.createElement("div");
-        // const flipCardFront = document.createElement("div");
-        // const flipCardBack = document.createElement("div");
-        // const imgValue = document.createElement("img");
-        // const imgFront = document.createElement("img");
-        // newCard.classList.add("card"); 
-        // flipCardInner.classList.add("flip-card-inner", "class-for-hover");
-        // flipCardFront.classList.add("flip-card-front");
-        // flipCardBack.classList.add("flip-card-back");
-        // imgValue.setAttribute("src", "card_gameover.png");
-        // imgValue.classList.add("img-value");
-        // imgFront.classList.add("img-front");
-        // imgFront.setAttribute("src", "card_back.png");
-        // innerField.appendChild(newCard);
-        // newCard.appendChild(flipCardInner);
-        // flipCardInner.appendChild(flipCardFront);
-        // flipCardInner.appendChild(flipCardBack);
-        // flipCardFront.appendChild(imgFront);
-        // flipCardBack.appendChild(imgValue);
+
         function createCard () {
             const newCard = document.createElement("div");
             const flipCardInner = document.createElement("div");
