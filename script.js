@@ -58,38 +58,70 @@ function startGame () {
     baseField.appendChild(innerField);
 
     let card = (level) => {
-        const newCard = document.createElement("div");
-        const flipCardInner = document.createElement("div");
-        const flipCardFront = document.createElement("div");
-        const flipCardBack = document.createElement("div");
-        const imgValue = document.createElement("img");
-        const imgFront = document.createElement("img");
-        newCard.classList.add("card"); 
-        flipCardInner.classList.add("flip-card-inner", "class-for-hover");
-        flipCardFront.classList.add("flip-card-front");
-        flipCardBack.classList.add("flip-card-back");
-        imgValue.setAttribute("src", "card_gameover.png");
-        imgValue.classList.add("img-value");
-        imgFront.classList.add("img-front");
-        imgFront.setAttribute("src", "card_back.png");
-        innerField.appendChild(newCard);
-        newCard.appendChild(flipCardInner);
-        flipCardInner.appendChild(flipCardFront);
-        flipCardInner.appendChild(flipCardBack);
-        flipCardFront.appendChild(imgFront);
-        flipCardBack.appendChild(imgValue);
+        // const newCard = document.createElement("div");
+        // const flipCardInner = document.createElement("div");
+        // const flipCardFront = document.createElement("div");
+        // const flipCardBack = document.createElement("div");
+        // const imgValue = document.createElement("img");
+        // const imgFront = document.createElement("img");
+        // newCard.classList.add("card"); 
+        // flipCardInner.classList.add("flip-card-inner", "class-for-hover");
+        // flipCardFront.classList.add("flip-card-front");
+        // flipCardBack.classList.add("flip-card-back");
+        // imgValue.setAttribute("src", "card_gameover.png");
+        // imgValue.classList.add("img-value");
+        // imgFront.classList.add("img-front");
+        // imgFront.setAttribute("src", "card_back.png");
+        // innerField.appendChild(newCard);
+        // newCard.appendChild(flipCardInner);
+        // flipCardInner.appendChild(flipCardFront);
+        // flipCardInner.appendChild(flipCardBack);
+        // flipCardFront.appendChild(imgFront);
+        // flipCardBack.appendChild(imgValue);
+        function createCard () {
+            const newCard = document.createElement("div");
+            const flipCardInner = document.createElement("div");
+            const flipCardFront = document.createElement("div");
+            const flipCardBack = document.createElement("div");
+            const imgValue = document.createElement("img");
+            const imgFront = document.createElement("img");
+            newCard.classList.add("card"); 
+            flipCardInner.classList.add("flip-card-inner", "class-for-hover");
+            flipCardFront.classList.add("flip-card-front");
+            flipCardBack.classList.add("flip-card-back");
+            imgValue.setAttribute("src", "card_gameover.png");
+            imgValue.classList.add("img-value");
+            imgFront.classList.add("img-front");
+            imgFront.setAttribute("src", "card_back.png");
+            innerField.appendChild(newCard);
+            newCard.appendChild(flipCardInner);
+            flipCardInner.appendChild(flipCardFront);
+            flipCardInner.appendChild(flipCardBack);
+            flipCardFront.appendChild(imgFront);
+            flipCardBack.appendChild(imgValue);
+            return {
+                newCardName: newCard,
+                flipCardInnerName: flipCardInner,
+                flipCardFrontName: flipCardFront,
+                flipCardBackName: flipCardBack,
+                imgValueName: imgValue,
+                imgFrontName: imgFront
+            }
+        }
+
+        let createdCard = createCard();
 
         function createRandomBag (level) {
             let randomNum = getRandomInt(1, level);
             if (randomNum == 1) {
-            imgValue.setAttribute("src", "card-bag.png");
+            createdCard.imgValueName.setAttribute("src", "card-bag.png");
             }
         }
         
-        flipCardInner.addEventListener("click", () => {
+        createdCard.flipCardInnerName.addEventListener("click", () => {
             createRandomBag(newCurrentLevelNum);
-            flipCardInner.classList.remove("class-for-hover");
-            flipCardInner.classList.add("transform");
+            createdCard.flipCardInnerName.classList.remove("class-for-hover");
+            createdCard.flipCardInnerName.classList.add("transform");
             const allCards = document.querySelectorAll(".flip-card-inner");
             allCards.forEach((item) => item.addEventListener("click", goToStart)); 
         }) 
