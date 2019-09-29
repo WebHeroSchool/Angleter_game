@@ -34,7 +34,6 @@ allButtonList.forEach((item) => item.addEventListener("click", chooseLevel));
 
 function startGame () {
     let currentLevel = document.querySelector(".checked").getAttribute("id");
-    console.log(currentLevel);
     function currentLevelNum (item) {
         switch (item) {
             case "simple":
@@ -53,7 +52,6 @@ function startGame () {
         return
     }
     let newCurrentLevelNum = currentLevelNum(currentLevel);
-    console.log(newCurrentLevelNum);
     menuScreen.remove();
     innerField.classList.remove("centeredFor3", "centeredFor6", "centeredFor10");
     mainContainer.appendChild(baseField);
@@ -83,11 +81,9 @@ function startGame () {
 
         function createRandomBag (level) {
             let randomNum = getRandomInt(1, level);
-            console.log(randomNum);
             if (randomNum == 1) {
             imgValue.setAttribute("src", "card-bag.png");
             }
-            console.log(imgValue);
         }
         
         flipCardInner.addEventListener("click", () => {
